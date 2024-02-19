@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "SeguroAutos_backend": {
+      "main": "src/SeguroAutos_backend/main.mo",
+      "type": "motoko"
+    },
+    "SeguroAutos_frontend": {
+      "dependencies": [
+        "SeguroAutos_backend"
+      ],
+      "source": [
+        "src/SeguroAutos_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "SeguroAutos_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
