@@ -1,7 +1,6 @@
-import { SeguroAutos_backend } from 'declarations/SeguroAutos_backend';
+import { Seguro_backend } from 'declarations/Seguro_backend';   
 
-function app() {
-    function Insurance(brand, year, type) {
+function Insurance(brand, year, type) {
         this.brand = brand;
         this.year = year;
         this.type = type;
@@ -14,13 +13,13 @@ function app() {
 
         switch (this.brand) {
             case '1':
-                amount = await SeguroAutos_backend.amountBrand(base, 1.15);
+                amount = await Seguro_backend.amountBrand(base, 1.15);
                 break;
             case '2':
-                amount = await SeguroAutos_backend.amountBrand(base, 1.05);
+                amount = await Seguro_backend.amountBrand(base, 1.05);
                 break;
             case '3':
-                amount = await SeguroAutos_backend.amountBrand(base, 1.35);
+                amount = await Seguro_backend.amountBrand(base, 1.35);
 
                 break;
 
@@ -30,7 +29,7 @@ function app() {
 
         let difference = new Date().getFullYear() - this.year;
 
-        amount = await SeguroAutos_backend.amountType(amount, difference, this.type);
+        amount = await Seguro_backend.amountType(amount, difference, this.type);
         return amount;
     }
 
@@ -71,7 +70,7 @@ function app() {
 
         const { brand, year, type } = insurance;
 
-        const textBrand = await SeguroAutos_backend.textBrand(brand.toString());
+        const textBrand = await Seguro_backend.textBrand(brand.toString());
 
         const div = document.createElement('div');
         div.classList.add('mt-10');
@@ -135,6 +134,3 @@ function app() {
 
         ui.showResult(total, insurance);
     }
-}
-
-export default app;
